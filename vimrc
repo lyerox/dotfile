@@ -52,69 +52,84 @@ set background=light
 let g:rehash256 = 1
 set encoding=utf-8
 
-" 显示相关配置
-winpos 2 2          " 设定窗口位置
-"set lines=40 columns=120    " 设定窗口大小
-set go=             " 不要图形按钮
-" autocmd FileType html set ft=htmldjango.html "
-set showcmd         " 输入的命令显示出来，看的清楚些
-set ruler           " 显示标尺
+set go=
+set showcmd
+set ruler
 
 let mapleader=","
-" 映射全选+复制 ctrl+a
 nnoremap <C-A> ggVGY
-"去空行
 nnoremap <F2> :g/^\s*$/d<CR>
-"比较文件
 set autoread
-"共享剪贴板
-set clipboard+=unnamed
 
 set nobackup
 set autowrite
-set cursorline              " 突出显示当前行
-" set magic                   " 设置魔术
-" set foldenable      " 允许折叠
-" set foldcolumn=0
-" set foldmethod=indent
-" set foldlevel=3
-" 语法高亮
+set cursorline
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
 syntax enable
-" 去掉输入错误的提示声音
 set noeb
-" 在处理未保存或只读文件的时候，弹出确认
 set confirm
-" 显示行号
 set number
-" 历史记录数
 set history=1000
 set noswapfile
 set ignorecase
-"搜索逐字符高亮
 set hlsearch
 set incsearch
+
+
 set gdefault
-"编码设置
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 set langmenu=zh_CN.UTF-8
 set helplang=cn
+
+
 set laststatus=2
 set cmdheight=2
 set viminfo+=!
 set iskeyword+=_,$,@,%,#,-
 set linespace=0
-" 增强模式中的命令行自动完成操作
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs ;)
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+" Linebreak on 500 characters
+set lbr
+set tw=500
+set magic
+set foldcolumn=1
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+
+
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+
 set wildmenu
-set backspace=2
+set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
-set mouse=a
 set selection=exclusive
 set selectmode=mouse,key
 set report=0
 set fillchars=vert:\ ,stl:\ ,stlnc:\
 set showmatch
-set matchtime=1
+set matchtime=2
 set scrolloff=3
+
 
 
 " CTags的设定
@@ -234,3 +249,10 @@ nmap J <Plug>(easymotion-j)
 nmap K <Plug>(easymotion-k)
 let g:EasyMotion_smartcase=1
 let g:EasyMotion_use_smartsign_us = 1
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if !has('nvim')
+    set ttymouse=xterm2
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+    set clipboard+=unnamedplus
+endif
+let g:togglecursor_force = 'xterm'
