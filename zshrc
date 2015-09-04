@@ -79,9 +79,9 @@ setxkbmap -option "caps:swapescape"
 #
 # Example aliases
 # alias gvim="gvim 2>/dev/null"
-alias zshrc="vim ~/.zshrc"
-alias vimrc="vim ~/.vimrc"
-alias vimprc="vim ~/.vimperatorrc"
+alias zshrc="vim ~/dotfile/zshrc"
+alias vimrc="vim ~/dotfile/vimrc"
+alias vimprc="vim ~/dotfile/vimperatorrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cls='clear'
 alias ll='ls -la'
