@@ -86,7 +86,7 @@ alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cls='clear'
 alias ll='ls -la'
 alias la='ls -a'
-alias vi='vim'
+alias vim='nvim'
 # alias vim-geeknote='vim -c Geeknote'
 alias javac="javac -J-Dfile.encoding=utf8"
 alias grep="grep --color=auto"

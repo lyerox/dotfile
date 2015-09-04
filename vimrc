@@ -1,52 +1,61 @@
-set nocompatible
-filetype off
-" be iMproved, required "filetype off                  " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
 
-"  let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'jszakmeister/vim-togglecursor'
-Plugin 'scrooloose/nerdcommenter'
-" Plugin 'altercation/vim-colors-solarized'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'hdima/python-syntax'
-Plugin 'kshenoy/vim-signature'
-Plugin 'ntpeters/vim-better-whitespace'
-" Plugin 'neilagabriel/vim-geeknote'
-Plugin 'hynek/vim-python-pep8-indent'
-" Plugin 'gosukiwi/vim-atom-dark'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'moll/vim-bbye'
-" Plugin 'tomasr/molokai'
-Plugin 'bling/vim-airline'
-Plugin 'Sirver/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-scripts/Auto-Pairs'
-" Plugin 'vim-scripts/vimwiki'
-Plugin 'vim-scripts/fcitx.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'sukima/xmledit'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'godlygeek/tabular'
-" Git plugin not hosted on GitHub
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" Put your non-Plugin stuff after this line
-  "ddd dddd
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'rdnetto/YCM-Generator'
+NeoBundle 'jszakmeister/vim-togglecursor'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'hdima/python-syntax'
+NeoBundle 'kshenoy/vim-signature'
+NeoBundle 'ntpeters/vim-better-whitespace'
+NeoBundle 'hynek/vim-python-pep8-indent'
+NeoBundle 'jmcantrell/vim-virtualenv'
+NeoBundle 'moll/vim-bbye'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'Sirver/ultisnips'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'vim-scripts/Auto-Pairs'
+NeoBundle 'vim-scripts/fcitx.vim'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'sukima/xmledit'
+NeoBundle 'tommcdo/vim-exchange'
+NeoBundle 'godlygeek/tabular'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
 
 set background=light
 let g:rehash256 = 1
@@ -209,13 +218,13 @@ set statusline+=%*
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 
 "Ultisnips.vim settins
-let g:UltiSnipsExpandTrigger = "<c-k>"
-let g:UltiSnipsJumpForwardTrigger = "<c-k>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsListSnippets        = "<c-;>" "List possible snippets based on current file
 let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsSnippetDirectories=["~/.vim/bundle/vim-snippets/UltiSnips"]
@@ -255,4 +264,6 @@ if !has('nvim')
     let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
     set clipboard+=unnamedplus
 endif
-let g:togglecursor_force = 'xterm'
+" let g:togglecursor_force = 'xterm'
+
+
