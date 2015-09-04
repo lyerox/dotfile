@@ -59,6 +59,8 @@ inoremap <C-l> <Del>
 map ,h :echo<Space>"hello"
 nnoremap l gt
 nnoremap h gT
+nnoremap j <Down>
+nnoremap k <Up>
 nnoremap <C-m> <Return>
 nnoremap ,sq :qmarks<Return>
 nnoremap ,sb :bmarks<Return>
