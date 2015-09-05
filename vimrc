@@ -81,8 +81,6 @@ let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_degrade=1
 colorscheme solarized
-call togglebg#map("<F5>")
-
 
 set nobackup
 set autowrite
@@ -257,9 +255,6 @@ if filereadable($VIRTUAL_ENV . '/.vimrc')
 endif
 "
 
-"geeknote settings
-autocmd FileType geeknote setlocal nonumber
-let g:GeeknoteFormat="markdown"
 
 "nerdcomment settings
 let g:NERDSpaceDelims = 1
@@ -272,9 +267,10 @@ nmap K <Plug>(easymotion-k)
 let g:EasyMotion_smartcase=1
 let g:EasyMotion_use_smartsign_us = 1
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-if has('nvim')
+if !has('nvim')
     set clipboard+=unnamedplus
-    let NVIM_TUI_ENABLE_TRUE_COLOR=1 
+    let NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
 
+"vim-togglecursor settings
