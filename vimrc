@@ -78,9 +78,10 @@ else
 endif
 
 let g:solarized_termcolors=256
-let g:solarized_contrast="normal"
+let g:solarized_contrast="high"
 let g:solarized_degrade=1
 colorscheme solarized
+call togglebg#map("<F5>")
 
 
 set nobackup
