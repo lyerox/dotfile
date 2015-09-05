@@ -15,6 +15,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
+NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'rdnetto/YCM-Generator'
@@ -57,8 +58,6 @@ filetype plugin indent on
 NeoBundleCheck
 
 
-set background=light
-let g:rehash256 = 1
 set encoding=utf-8
 
 set go=
@@ -70,6 +69,20 @@ nnoremap <C-A> ggVGY
 nnoremap <F2> :g/^\s*$/d<CR>
 set autoread
 
+
+syntax enable
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+
+let g:solarized_termcolors=256
+let g:solarized_contrast="normal"
+let g:solarized_degrade=1
+colorscheme solarized
+
+
 set nobackup
 set autowrite
 set cursorline
@@ -77,7 +90,6 @@ set cursorline
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 
-syntax enable
 set noeb
 set confirm
 set number
@@ -259,11 +271,9 @@ nmap K <Plug>(easymotion-k)
 let g:EasyMotion_smartcase=1
 let g:EasyMotion_use_smartsign_us = 1
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-if !has('nvim')
-    set ttymouse=xterm2
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+if has('nvim')
     set clipboard+=unnamedplus
+    let NVIM_TUI_ENABLE_TRUE_COLOR=1 
 endif
-" let g:togglecursor_force = 'xterm'
 
 
