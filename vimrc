@@ -21,7 +21,7 @@ NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'rdnetto/YCM-Generator'
 NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'Shougo/unite.vim'
+" NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'hdima/python-syntax'
@@ -264,11 +264,12 @@ let g:NERDSpaceDelims = 1
 nmap s <Plug>(easymotion-s2)
 nmap J <Plug>(easymotion-j)
 nmap K <Plug>(easymotion-k)
+set clipboard+=unnamed
 let g:EasyMotion_smartcase=1
 let g:EasyMotion_use_smartsign_us = 1
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-if !has('nvim')
-    set clipboard+=unnamedplus
+if has('nvim')
+    set clipboard+=unnamed
     let NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
