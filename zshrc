@@ -92,6 +92,7 @@ alias javac="javac -J-Dfile.encoding=utf8"
 alias grep="grep --color=auto"
 alias cat="colorize"
 alias gae="sudo ~/XX-Net/start.sh"
+alias wifi="sudo create_ap wlan0 eth0 lyx 12345678"
 alias hust="cd ~/Downloads/hustnet/rjsupplicant/x64 && sudo ./rjsupplicant && sudo NetworkManager"
 #alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
 #alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开

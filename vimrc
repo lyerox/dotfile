@@ -16,11 +16,15 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'endel/vim-github-colorscheme'
+" NeoBundle 'xolox/vim-notes'
+" NeoBundle 'xolox/vim-misc'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'rdnetto/YCM-Generator'
 NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'junegunn/vim-easy-align'
 " NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
@@ -40,9 +44,9 @@ NeoBundle 'vim-scripts/fcitx.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'sukima/xmledit'
+" NeoBundle 'sukima/xmledit'
 NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'godlygeek/tabular'
+" NeoBundle 'godlygeek/tabular'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -74,13 +78,13 @@ syntax enable
 if has('gui_running')
     set background=light
 else
-    set background=dark
+    set background=light
 endif
 
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_degrade=1
-colorscheme solarized
+colorscheme github
 
 set nobackup
 set autowrite
@@ -258,6 +262,7 @@ endif
 
 "nerdcomment settings
 let g:NERDSpaceDelims = 1
+let python_highlight_all = 1
 
 
 " easymotion config
@@ -269,7 +274,7 @@ let g:EasyMotion_smartcase=1
 let g:EasyMotion_use_smartsign_us = 1
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 if has('nvim')
-    set clipboard+=unnamed
+    set clipboard+=unnamedplus
     let NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
