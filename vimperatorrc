@@ -1,4 +1,4 @@
-"3.10.1 (created: 2015/08/27 00:47:00)
+"3.10.1 (created: 2015/09/13 16:28:51)
 
 cabbrev {em} {emenu}
 cnoremap <C-a> <Home>
@@ -76,6 +76,8 @@ nnoremap ,fs :emenu<Space>Tools.Greasemonkey.Scripts<Space>on<Space>Greasy<Space
 nnoremap ,mv :tabmove<Return>
 nnoremap ,te :emenu<Space>Tools.S3.Google<Space>Translator.Translate<Space>entered<Space>words<Return>
 nnoremap ,ts :emenu<Space>Tools.S3.Google<Space>Translator.Translate<Space>from<Space>clipboard<Return>
+nnoremap ,cs :emenu<Space>View.Close<Space>Reader<Space>View<Return>
+nnoremap ,rv :emenu<Space>View.Enter<Space>Reader<Space>View<Return>
 set complete=sfl
 set editor=vim
 set focuscontent

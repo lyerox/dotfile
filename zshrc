@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 export TERM="xterm-256color"
 export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
+source /usr/bin/virtualenvwrapper.sh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -55,10 +55,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/bin/virtualenvwrapper.sh
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-setxkbmap -option "caps:swapescape"
+export LANG=en_US.UTF-8
+export LC_CTYPE=zh_CN.UTF-8
+# setxkbmap -option "caps:swapescape"
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -93,7 +93,7 @@ alias grep="grep --color=auto"
 alias cat="colorize"
 alias gae="sudo ~/XX-Net/start.sh"
 alias wifi="sudo create_ap wlan0 eth0 lyx 12345678"
-alias hust="cd ~/Downloads/hustnet/rjsupplicant/x64 && sudo ./rjsupplicant && sudo NetworkManager"
+alias hust="sudo sh  ~/Downloads/hustnet/rjsupplicant.sh"
 #alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
 #alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开
 #alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似

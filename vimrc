@@ -26,7 +26,7 @@ NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'junegunn/vim-easy-align'
 " NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc.vim'
+"NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'hdima/python-syntax'
 NeoBundle 'kshenoy/vim-signature'
@@ -38,9 +38,9 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'Sirver/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'scrooloose/syntastic'
 NeoBundle 'vim-scripts/Auto-Pairs'
-NeoBundle 'vim-scripts/fcitx.vim'
+" NeoBundle 'vim-scripts/fcitx.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
@@ -81,9 +81,9 @@ else
     set background=light
 endif
 
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_degrade=1
+" let g:solarized_termcolors=256
+" let g:solarized_contrast="high"
+" let g:solarized_degrade=1
 colorscheme github
 
 set nobackup
@@ -269,14 +269,13 @@ let python_highlight_all = 1
 nmap s <Plug>(easymotion-s2)
 nmap J <Plug>(easymotion-j)
 nmap K <Plug>(easymotion-k)
-set clipboard+=unnamed
+" set clipboard+=unnamed
 let g:EasyMotion_smartcase=1
 let g:EasyMotion_use_smartsign_us = 1
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 if has('nvim')
-    set clipboard+=unnamedplus
+    " set clipboard+=unnamedplus
     let NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
-
 
 "vim-togglecursor settings
