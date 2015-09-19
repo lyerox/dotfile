@@ -15,18 +15,21 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
-NeoBundle 'altercation/vim-colors-solarized'
+" NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'endel/vim-github-colorscheme'
 " NeoBundle 'xolox/vim-notes'
 " NeoBundle 'xolox/vim-misc'
 NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Rykka/riv.vim'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'rdnetto/YCM-Generator'
 NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'junegunn/vim-easy-align'
 " NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'Shougo/vimproc.vim'
+" NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'hdima/python-syntax'
 NeoBundle 'kshenoy/vim-signature'
@@ -38,15 +41,12 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'Sirver/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'scrooloose/nerdtree'
-"NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'vim-scripts/Auto-Pairs'
-" NeoBundle 'vim-scripts/fcitx.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
-" NeoBundle 'sukima/xmledit'
 NeoBundle 'tommcdo/vim-exchange'
-" NeoBundle 'godlygeek/tabular'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -182,7 +182,7 @@ inoremap <c-f> <Right>
 inoremap <c-a> <Home>
 "some keyshortcuts for some commands
 nnoremap <C-t> :TagbarToggle<CR>
-nnoremap <C-e> :NERDTreeToggle<CR>
+" nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>d :Bdelete<CR>
 nnoremap < :bprevious<CR>
 nnoremap > :bnext<CR>
@@ -233,8 +233,8 @@ set statusline+=%*
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
 
 "Ultisnips.vim settins
 let g:UltiSnipsExpandTrigger = "<c-j>"
