@@ -1,6 +1,5 @@
 "3.10.1 (created: 2015/09/13 16:28:51)
 
-cabbrev {em} {emenu}
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-f> <Right>
