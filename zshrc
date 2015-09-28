@@ -114,3 +114,4 @@ alias -s pdf='zathura'
 export PATH="/usr/local/heroku/bin:$PATH"
 alias netmusic="musicbox"
 alias archey="archey3"
+archey -s
