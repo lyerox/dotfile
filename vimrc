@@ -168,6 +168,9 @@ set scrolloff=3
 " "设置tags
 set tags=tags
 set autochdir
+"noremap quick go first word and the last
+nnoremap gh g^
+nnoremap gl g_
 
 "noremap quick switch navigation
 nnoremap <c-j> <c-w>j
