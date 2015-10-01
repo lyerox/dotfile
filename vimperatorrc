@@ -1,4 +1,4 @@
-"3.10.1 (created: 2015/09/13 16:28:51)
+"3.10.1 (created: 2015/09/28 18:38:03)
 
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
@@ -77,6 +77,7 @@ nnoremap ,te :emenu<Space>Tools.S3.Google<Space>Translator.Translate<Space>enter
 nnoremap ,ts :emenu<Space>Tools.S3.Google<Space>Translator.Translate<Space>from<Space>clipboard<Return>
 nnoremap ,cs :emenu<Space>View.Close<Space>Reader<Space>View<Return>
 nnoremap ,rv :emenu<Space>View.Enter<Space>Reader<Space>View<Return>
+" nnoremap <C-c> :stop<Return>
 set complete=sfl
 set editor=vim
 set focuscontent

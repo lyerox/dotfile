@@ -17,10 +17,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 " NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'endel/vim-github-colorscheme'
-" NeoBundle 'xolox/vim-notes'
-" NeoBundle 'xolox/vim-misc'
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Rykka/riv.vim'
+NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'rdnetto/YCM-Generator'
 NeoBundle 'jszakmeister/vim-togglecursor'
@@ -31,7 +29,7 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'hdima/python-syntax'
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'hynek/vim-python-pep8-indent'
@@ -43,10 +41,10 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'vim-scripts/Auto-Pairs'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tommcdo/vim-exchange'
+NeoBundle 'tpope/vim-surround'
+NeoBundleLazy 'hdima/python-syntax', {'autoload':{'filetype':['python']}}
+NeoBundleLazy 'Rykka/riv.vim', {'autoload':{'filetype':['rst']}}
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -166,7 +164,6 @@ set scrolloff=3
  let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树
  let Tlist_Show_One_File=1            "不同时显示多个文件的tag，只显示当前文件的
 " "设置tags
-set tags=tags
 set autochdir
 "noremap quick go first word and the last
 nnoremap gh g^
@@ -282,3 +279,4 @@ if has('nvim')
 endif
 
 "vim-togglecursor settings
+let g:ycm_global_ycm_extra_conf = '~/.ycm.extra_conf.py'
