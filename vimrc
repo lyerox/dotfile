@@ -20,13 +20,9 @@ NeoBundle 'endel/vim-github-colorscheme'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'rdnetto/YCM-Generator'
 NeoBundle 'jszakmeister/vim-togglecursor'
-NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'junegunn/vim-easy-align'
-" NeoBundle 'Shougo/unite.vim'
-" NeoBundle 'Shougo/vimproc.vim'
-NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'majutsushi/tagbar'
@@ -42,7 +38,11 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'vim-scripts/Auto-Pairs'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-commentary'
+NeoBundleLazy 'rdnetto/YCM-Generator'
+NeoBundleLazy 'rust-lang/rust.vim'
+NeoBundleLazy 'amix/vim-zenroom2'
+NeoBundleLazy 'junegunn/goyo.vim'
 NeoBundleLazy 'hdima/python-syntax', {'autoload':{'filetype':['python']}}
 NeoBundleLazy 'Rykka/riv.vim', {'autoload':{'filetype':['rst']}}
 
@@ -128,7 +128,7 @@ set tabstop=4
 
 " Linebreak on 500 characters
 set lbr
-set tw=500
+set tw=100
 set magic
 set foldcolumn=1
 set ai "Auto indent
@@ -154,17 +154,17 @@ set scrolloff=3
 
 
 
-" CTags的设定
+" CTags settings
  map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>
- let Tlist_Sort_Type = "name"    " 按照名称排序
- let Tlist_Use_Left_Window = 1  " 在左侧显示窗口
- let Tlist_Compart_Format = 1    " 压缩方式
- let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer
- let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags
- let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树
- let Tlist_Show_One_File=1            "不同时显示多个文件的tag，只显示当前文件的
-" "设置tags
+ let Tlist_Sort_Type = "name"
+ let Tlist_Use_Left_Window = 1
+ let Tlist_Compart_Format = 1
+ let Tlist_Exist_OnlyWindow = 1
+ let Tlist_File_Fold_Auto_Close = 0
+ let Tlist_Enable_Fold_Column = 0
+ let Tlist_Show_One_File=1
 set autochdir
+
 "noremap quick go first word and the last
 nnoremap gh g^
 nnoremap gl g_
@@ -181,8 +181,18 @@ inoremap <c-b> <Left>
 inoremap <c-f> <Right>
 inoremap <c-a> <Home>
 "some keyshortcuts for some commands
+
 nnoremap <C-t> :TagbarToggle<CR>
-" nnoremap <Leader>nt :NERDTreeToggle<CR>
+
+
+"NERD Tree plugin shortcut settings
+nnoremap <Leader>nn :NERDTreeToggle<CR>
+nnoremap <Leader>nb :NERDTreeFromBookmark<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
+
+
+"Goyo.vim plugin shortcut settings
+nnoremap <Leader>z :Goyo<cr>
 nnoremap <Leader>d :Bdelete<CR>
 nnoremap < :bprevious<CR>
 nnoremap > :bnext<CR>
@@ -190,7 +200,7 @@ nnoremap <Leader>d :Bdelete<CR>
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 "Ycm settings
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.ycm.extra_conf.py'
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_cache_omnifunc=0
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -207,7 +217,7 @@ let python_highlight_builtin_objs = 1
 let python_highlight_builtin_funcs = 1
 let python_highlight_exceptions = 1
 
-"this airline settings "
+"airline plugin settings
 let g:airline_theme='dark'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
@@ -219,7 +229,7 @@ let g:airline#extensions#whitespace#enabled = 1
 
 
 
-"tagbar settings"
+"tagbar settings
 let g:airline#extensions#tagbar#enabled=1
 let g:airline#extensions#tagbar#flags = 'f'
 let g:tagbar_left=1
@@ -232,9 +242,9 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 " let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
+
 
 "Ultisnips.vim settins
 let g:UltiSnipsExpandTrigger = "<c-j>"
@@ -259,12 +269,6 @@ if filereadable($VIRTUAL_ENV . '/.vimrc')
 endif
 "
 
-
-"nerdcomment settings
-let g:NERDSpaceDelims = 1
-let python_highlight_all = 1
-
-
 " easymotion config
 nmap s <Plug>(easymotion-s2)
 nmap J <Plug>(easymotion-j)
@@ -279,4 +283,3 @@ if has('nvim')
 endif
 
 "vim-togglecursor settings
-let g:ycm_global_ycm_extra_conf = '~/.ycm.extra_conf.py'
