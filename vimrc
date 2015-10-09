@@ -16,15 +16,16 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 " Required:
 " NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'endel/vim-github-colorscheme'
-NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'sjl/gundo.vim'
+" NeoBundleLazy 'rdnetto/YCM-Generator'
+NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'jszakmeister/vim-togglecursor'
-NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'Lokaltog/vim-easymotion'
+" NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'ntpeters/vim-better-whitespace'
@@ -37,9 +38,10 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'vim-scripts/Auto-Pairs'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-commentary'
-NeoBundleLazy 'rdnetto/YCM-Generator'
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'endel/vim-github-colorscheme'
+NeoBundleLazy 'junegunn/vim-easy-align'
 NeoBundleLazy 'rust-lang/rust.vim'
 NeoBundleLazy 'amix/vim-zenroom2'
 NeoBundleLazy 'junegunn/goyo.vim'
@@ -273,6 +275,10 @@ endif
 nmap s <Plug>(easymotion-s2)
 nmap J <Plug>(easymotion-j)
 nmap K <Plug>(easymotion-k)
+
+" vmap K <Plug>(expand_region_expand)
+" vmap J <Plug>(expand_region_shrink)
+
 " set clipboard+=unnamed
 let g:EasyMotion_smartcase=1
 let g:EasyMotion_use_smartsign_us = 1
@@ -282,4 +288,9 @@ if has('nvim')
     let NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
-"vim-togglecursor settings
+" vim-multiple-cursors settings
+let g:multi_cursor_start_key='<C-n>'
+let g:multi_cursor_start_word_key='g<C-n>'
+let g:multi_cursor_quit_key='<C-c>'
+nnoremap <C-c> :call multiple_cursors#quit()<CR>
+
