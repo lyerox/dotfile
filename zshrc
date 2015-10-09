@@ -113,3 +113,7 @@ alias -s pdf='zathura'
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 alias netmusic="musicbox"
+alias pacupg="sudo pacman -Syu"
+alias pacre="sudo pacman -R"
+alias pacrem="sudo pacman -Rns"
+alias pacin="sudo pacman -S"
