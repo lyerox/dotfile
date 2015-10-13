@@ -73,11 +73,9 @@ nnoremap ,sg :emenu<Space>Tools.S3.Google<Space>Translator.Go<Space>to<Space>the
 nnoremap ,fb :emenu<Space>View.Firebug<Return>
 nnoremap ,fs :emenu<Space>Tools.Greasemonkey.Scripts<Space>on<Space>Greasy<Space>Fork<Return>
 nnoremap ,mv :tabmove<Return>
-" nnoremap ,te :emenu<Space>Tools.S3.Google<Space>Translator.Translate<Space>entered<Space>words<Return>
-" nnoremap ,ts :emenu<Space>Tools.S3.Google<Space>Translator.Translate<Space>from<Space>clipboard<Return>
 nnoremap ,cs :emenu<Space>View.Close<Space>Reader<Space>View<Return>
 nnoremap ,rv :emenu<Space>View.Enter<Space>Reader<Space>View<Return>
-" nnoremap <C-c> :stop<Return>
+nnoremap <C-c> :stop<Return>
 set complete=sfl
 set editor=vim
 set focuscontent
