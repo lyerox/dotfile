@@ -75,7 +75,7 @@ nnoremap ,fs :emenu<Space>Tools.Greasemonkey.Scripts<Space>on<Space>Greasy<Space
 nnoremap ,mv :tabmove<Return>
 nnoremap ,cs :emenu<Space>View.Close<Space>Reader<Space>View<Return>
 nnoremap ,rv :emenu<Space>View.Enter<Space>Reader<Space>View<Return>
-nnoremap <C-c> :stop<Return>
+nnoremap <C-s> :stop<CR>
 set complete=sfl
 set editor=vim
 set focuscontent
