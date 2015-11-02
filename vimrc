@@ -202,8 +202,10 @@ nnoremap > :bnext<CR>
 nnoremap <Leader>d :Bdelete<CR>
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
+
+autocmd Filetype java setlocal omnifunc=eclim#java#complete#CodeComplete
+
 "Ycm settings
-let g:ycm_global_ycm_extra_conf = '~/.ycm.extra_conf.py'
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_cache_omnifunc=0
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -212,6 +214,11 @@ let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
 let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
+if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
+   let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+endif
+let g:EclimCompletionMethod = 'omnifunc'
+
 
 "setting for python syntax
 let b:python_version_2 = 1
@@ -239,7 +246,7 @@ let g:tagbar_left=1
 ""
 
 "syntastic settings
-let g:syntastic_python_python_exec = '/usr/bin/python'
+let g:syntastic_python_python_exec = '/usr/bin/python2.7'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -285,7 +292,7 @@ let g:EasyMotion_smartcase=1
 let g:EasyMotion_use_smartsign_us = 1
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 if has('nvim')
-    " set clipboard+=unnamedplus
+    set clipboard+=unnamedplus
     let NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
@@ -294,4 +301,3 @@ let g:multi_cursor_start_key='<C-n>'
 let g:multi_cursor_start_word_key='g<C-n>'
 let g:multi_cursor_quit_key='<C-c>'
 nnoremap <C-c> :call multiple_cursors#quit()<CR>
-
