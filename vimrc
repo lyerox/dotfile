@@ -1,67 +1,45 @@
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+call plug#begin('~/.vim/plugged')
 
-" Let NeoBundle manage NeoBundle
-" Required:
-" NeoBundle 'altercation/vim-colors-solarized'
-" NeoBundleLazy 'rdnetto/YCM-Generator'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'jszakmeister/vim-togglecursor'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'kshenoy/vim-signature'
-NeoBundle 'ntpeters/vim-better-whitespace'
-NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'jmcantrell/vim-virtualenv'
-NeoBundle 'moll/vim-bbye'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'Sirver/ultisnips'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'vim-scripts/Auto-Pairs'
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'endel/vim-github-colorscheme'
-NeoBundleLazy 'meiraka/vim-google-cpp-style-indent'
-NeoBundleLazy 'junegunn/vim-easy-align'
-NeoBundleLazy 'rust-lang/rust.vim'
-NeoBundleLazy 'amix/vim-zenroom2'
-NeoBundleLazy 'junegunn/goyo.vim'
-NeoBundleLazy 'hdima/python-syntax', {'autoload':{'filetype':['python']}}
-NeoBundleLazy 'Rykka/riv.vim', {'autoload':{'filetype':['rst']}}
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'tpope/vim-repeat'
+Plug 'tommcdo/vim-exchange'
+Plug 'jszakmeister/vim-togglecursor'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-expand-region'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'majutsushi/tagbar'
+Plug 'kshenoy/vim-signature'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'Yggdroot/indentLine', {'on': 'IndentLinesToggle'}
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'sjl/gundo.vim'
+Plug 'endel/vim-github-colorscheme'
+Plug 'bling/vim-airline'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'junegunn/vim-easy-align'
+Plug 'scrooloose/syntastic'
+Plug 'vim-scripts/Auto-Pairs'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'amix/vim-zenroom2' "A Vim extension that emulates iA Writer environment when editing Markdown, reStructuredText or text files 
+Plug 'moll/vim-bbye', {'on': 'Bdelete'}
+Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
+Plug 'Sirver/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'hdima/python-syntax', {'for': ['python']}
+Plug 'Rykka/riv.vim', {'for': ['rst']}
+Plug 'rust-lang/rust.vim', {'for': ['rust']}
+Plug 'meiraka/vim-google-cpp-style-indent', {'for': ['cpp']}
+Plug 'hynek/vim-python-pep8-indent', {'for': ['python']}
+Plug 'Valloric/YouCompleteMe' ", {'for': ['cpp', 'python', 'c']}
+" autocmd! User YouCompleteMe call youcompleteme#Enable()
 
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
+call plug#end()
 
-call neobundle#end()
-
-" Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
+let g:indentLine_enabled = 0
 
 set encoding=utf-8
 
@@ -74,17 +52,6 @@ nnoremap <C-A> ggVGY
 nnoremap <F2> :g/^\s*$/d<CR>
 set autoread
 
-
-syntax enable
-if has('gui_running')
-    set background=light
-else
-    set background=light
-endif
-
-" let g:solarized_termcolors=256
-" let g:solarized_contrast="high"
-" let g:solarized_degrade=1
 colorscheme github
 
 set nobackup
@@ -203,9 +170,9 @@ nnoremap <Leader>d :Bdelete<CR>
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 
-autocmd Filetype java setlocal omnifunc=eclim#java#complete#CodeComplete
 
 "Ycm settings
+" let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_cache_omnifunc=0
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -217,7 +184,6 @@ let g:ycm_complete_in_strings = 1 " Completion in string
 if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 endif
-let g:EclimCompletionMethod = 'omnifunc'
 
 
 "setting for python syntax
@@ -246,14 +212,12 @@ let g:tagbar_left=1
 ""
 
 "syntastic settings
-let g:syntastic_python_python_exec = '/usr/bin/python2.7'
+let g:syntastic_python_python_exec = '/usr/bin/python'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
 
 
 "Ultisnips.vim settins
@@ -270,8 +234,6 @@ let NERDTreeWinSize=22
 let NERDTreeWinPos="right"
 let NERDTreeAutoDeleteBuffer=1
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 
 if filereadable($VIRTUAL_ENV . '/.vimrc')
@@ -284,10 +246,7 @@ nmap s <Plug>(easymotion-s2)
 nmap J <Plug>(easymotion-j)
 nmap K <Plug>(easymotion-k)
 
-" vmap K <Plug>(expand_region_expand)
-" vmap J <Plug>(expand_region_shrink)
 
-" set clipboard+=unnamed
 let g:EasyMotion_smartcase=1
 let g:EasyMotion_use_smartsign_us = 1
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1

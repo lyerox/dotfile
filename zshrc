@@ -47,7 +47,7 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby autojump web-search sudo django colorize tmux frontend-search)
+plugins=(git autojump sudo tmux django colorize frontend-search)
 
 # User configuration
 
@@ -107,12 +107,14 @@ alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias -s pdf='zathura'
+alias -s gif='mcomix'
 
 [[ -s /home/lyx/.autojump/etc/profile.d/autojump.sh ]] && source /home/lyx/.autojump/etc/profile.d/autojump.sh
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 alias netmusic="musicbox"
+alias glances="glances --theme-white"
 alias pacupg="sudo pacman -Syu"
 alias pacre="sudo pacman -R"
 alias pacrem="sudo pacman -Rns"
