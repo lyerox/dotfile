@@ -114,7 +114,6 @@ alias -s gif='mcomix'
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 alias netmusic="musicbox"
-alias glances="glances --theme-white"
 alias pacupg="sudo pacman -Syu"
 alias pacre="sudo pacman -R"
 alias pacrem="sudo pacman -Rns"

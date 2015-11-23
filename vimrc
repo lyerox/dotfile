@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'tpope/vim-repeat'
 Plug 'tommcdo/vim-exchange'
-Plug 'jszakmeister/vim-togglecursor'
+" Plug 'jszakmeister/vim-togglecursor'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
@@ -22,7 +22,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/Auto-Pairs'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'amix/vim-zenroom2' "A Vim extension that emulates iA Writer environment when editing Markdown, reStructuredText or text files 
+Plug 'amix/vim-zenroom2' "A Vim extension that emulates iA Writer environment when editing Markdown, reStructuredText or text files
 Plug 'moll/vim-bbye', {'on': 'Bdelete'}
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'Sirver/ultisnips' | Plug 'honza/vim-snippets'
@@ -32,7 +32,7 @@ Plug 'Rykka/riv.vim', {'for': ['rst']}
 Plug 'rust-lang/rust.vim', {'for': ['rust']}
 Plug 'meiraka/vim-google-cpp-style-indent', {'for': ['cpp']}
 Plug 'hynek/vim-python-pep8-indent', {'for': ['python']}
-Plug 'Valloric/YouCompleteMe' ", {'for': ['cpp', 'python', 'c']}
+Plug 'Valloric/YouCompleteMe' , {'for': ['cpp', 'python', 'c']}
 " autocmd! User YouCompleteMe call youcompleteme#Enable()
 
 call plug#end()
@@ -249,10 +249,9 @@ nmap K <Plug>(easymotion-k)
 
 let g:EasyMotion_smartcase=1
 let g:EasyMotion_use_smartsign_us = 1
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 if has('nvim')
     set clipboard+=unnamedplus
-    let NVIM_TUI_ENABLE_TRUE_COLOR=1
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
 " vim-multiple-cursors settings
@@ -260,3 +259,4 @@ let g:multi_cursor_start_key='<C-n>'
 let g:multi_cursor_start_word_key='g<C-n>'
 let g:multi_cursor_quit_key='<C-c>'
 nnoremap <C-c> :call multiple_cursors#quit()<CR>
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
