@@ -1,28 +1,32 @@
 " Required:
 call plug#begin('~/.vim/plugged')
 
-Plug 'jmcantrell/vim-virtualenv'
-Plug 'tpope/vim-repeat'
-Plug 'tommcdo/vim-exchange'
 " Plug 'jszakmeister/vim-togglecursor'
+" Plug 'john2x/flatui.vim'
+" Plug 'endel/vim-github-colorscheme'
+" Plug 'gosukiwi/vim-atom-dark'
+Plug 'tommcdo/vim-exchange'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'saghul/vim-colortoggle'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'majutsushi/tagbar'
-Plug 'kshenoy/vim-signature'
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'Yggdroot/indentLine', {'on': 'IndentLinesToggle'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sjl/gundo.vim'
-Plug 'endel/vim-github-colorscheme'
+Plug 'kshenoy/vim-signature'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'bling/vim-airline'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
-Plug 'vim-scripts/Auto-Pairs'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'amix/vim-zenroom2' "A Vim extension that emulates iA Writer environment when editing Markdown, reStructuredText or text files
+Plug 'Glench/Vim-Jinja2-Syntax',{'for': ['python']}
+Plug 'Yggdroot/indentLine', {'on': 'IndentLinesToggle'}
+Plug 'vim-scripts/Auto-Pairs'
 Plug 'moll/vim-bbye', {'on': 'Bdelete'}
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'Sirver/ultisnips' | Plug 'honza/vim-snippets'
@@ -32,8 +36,8 @@ Plug 'Rykka/riv.vim', {'for': ['rst']}
 Plug 'rust-lang/rust.vim', {'for': ['rust']}
 Plug 'meiraka/vim-google-cpp-style-indent', {'for': ['cpp']}
 Plug 'hynek/vim-python-pep8-indent', {'for': ['python']}
-Plug 'Valloric/YouCompleteMe' , {'for': ['cpp', 'python', 'c']}
-" autocmd! User YouCompleteMe call youcompleteme#Enable()
+Plug 'Valloric/YouCompleteMe', {'for': ['cpp', 'python', 'c']}
+autocmd! User YouCompleteMe call youcompleteme#Enable()
 
 call plug#end()
 
@@ -52,7 +56,9 @@ nnoremap <C-A> ggVGY
 nnoremap <F2> :g/^\s*$/d<CR>
 set autoread
 
-colorscheme github
+" set background=dark
+nnoremap <leader>bg :ToggleBg<CR>
+colorscheme PaperColor
 
 set nobackup
 set autowrite
@@ -140,10 +146,10 @@ nnoremap gh g^
 nnoremap gl g_
 
 "noremap quick switch navigation
-nnoremap <c-j> <c-w>j
-nnoremap <c-l> <c-w>l
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
+nnoremap J <c-w>j
+nnoremap L <c-w>l
+nnoremap K <c-w>k
+nnoremap H <c-w>h
 "insert mode map command settings ,manner like habits in term mode "
 inoremap <c-l> <Del>
 inoremap <c-e> <End>
@@ -188,13 +194,10 @@ endif
 
 "setting for python syntax
 let b:python_version_2 = 1
-let python_highlight_builtins = 1
-let python_highlight_builtin_objs = 1
-let python_highlight_builtin_funcs = 1
-let python_highlight_exceptions = 1
+let python_highlight_all = 1
 
 "airline plugin settings
-let g:airline_theme='dark'
+let g:airline_theme='PaperColor'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_buffers=1
@@ -202,7 +205,7 @@ let g:airline#extensions#tabline#left_sep=' '
 let g:airline#extensions#tabline#left_alt_sep='|'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
-
+let g:tmuxline_powerline_separators = 0
 
 
 "tagbar settings
@@ -243,8 +246,8 @@ endif
 
 " easymotion config
 nmap s <Plug>(easymotion-s2)
-nmap J <Plug>(easymotion-j)
-nmap K <Plug>(easymotion-k)
+nmap <Leader>J <Plug>(easymotion-j)
+nmap <Leader>K <Plug>(easymotion-k)
 
 
 let g:EasyMotion_smartcase=1
@@ -260,3 +263,4 @@ let g:multi_cursor_start_word_key='g<C-n>'
 let g:multi_cursor_quit_key='<C-c>'
 nnoremap <C-c> :call multiple_cursors#quit()<CR>
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let g:tmuxline_powerline_separators = 0

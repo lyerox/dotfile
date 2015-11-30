@@ -55,7 +55,6 @@ inoremap <C-b> <Left>
 inoremap <C-m> <Return>
 inoremap <C-h> <BS>
 inoremap <C-l> <Del>
-map ,h :echo<Space>"hello"
 nnoremap l gt
 nnoremap h gT
 nnoremap j <Down>
@@ -66,14 +65,12 @@ nnoremap ,sb :bmarks<Return>
 nnoremap ,sf :stylish<Space>find<Return>
 nnoremap ,nf :set<Space>fullscreen<Return>
 nnoremap ,no :set<Space>nofullscreen<Return>
-nnoremap ,ec :emenu<Space>View.Enter Reader View<CR>
 nnoremap ,en :emenu<Space>Tools.WebClipper<Return>
 nnoremap ,ad <A-F2>
-nnoremap ,sg :emenu<Space>Tools.S3.Google<Space>Translator.Go<Space>to<Space>the<Space>Google<Space>Translate<Space>website<Return>
-nnoremap ,fb :emenu<Space>View.Firebug<Return>
-nnoremap ,fs :emenu<Space>Tools.Greasemonkey.Scripts<Space>on<Space>Greasy<Space>Fork<Return>
+nnoremap ,vb :emenu<Space>View.Firebug<Return>
+nnoremap ,gf :emenu<Space>Tools.Greasemonkey.Scripts<Space>on<Space>Greasy<Space>Fork<Return>
 nnoremap ,mv :tabmove<Return>
-nnoremap ,cs :emenu<Space>View.Close<Space>Reader<Space>View<Return>
+nnoremap ,rc :emenu<Space>View.Close<Space>Reader<Space>View<Return>
 nnoremap ,rv :emenu<Space>View.Enter<Space>Reader<Space>View<Return>
 nnoremap <C-s> :stop<CR>
 set complete=sfl

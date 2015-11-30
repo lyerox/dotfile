@@ -118,3 +118,4 @@ alias pacupg="sudo pacman -Syu"
 alias pacre="sudo pacman -R"
 alias pacrem="sudo pacman -Rns"
 alias pacin="sudo pacman -S"
+eval $(thefuck --alias) 
