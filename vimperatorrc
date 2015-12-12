@@ -57,9 +57,12 @@ inoremap <C-h> <BS>
 inoremap <C-l> <Del>
 nnoremap l gt
 nnoremap h gT
-nnoremap j <Down>
-nnoremap k <Up>
+nnoremap j 5<C-e>
+nnoremap k 5<C-y>
+noremap <C-g> YP
 nnoremap <C-m> <Return>
+nnoremap <S-Right> :tabmove! +1<CR>
+nnoremap <S-Left>  :tabmove! -1<CR>
 nnoremap ,sq :qmarks<Return>
 nnoremap ,sb :bmarks<Return>
 nnoremap ,sf :stylish<Space>find<Return>
@@ -74,15 +77,16 @@ nnoremap ,rc :emenu<Space>View.Close<Space>Reader<Space>View<Return>
 nnoremap ,rv :emenu<Space>View.Enter<Space>Reader<Space>View<Return>
 nnoremap <C-s> :stop<CR>
 set complete=sfl
+set hlsearch
 set editor=vim
 set focuscontent
-set hintchars=hjklasdfgyuiopqwertnmzxcvb
+set hintchars=ifjklasdhguonmerwc
 set maxitems=15
 set "nextpattern=s*下一页|下一张|下页s*,bnext|Next\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b"
 set "previouspattern=s*上一页|上一张|上页s*,bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$"
 set noscrollbars
 set status=input,bookmark,history,ssl,tabcount,position
-set "titlestring=Hello Doukimi !!!"
+set titlestring=Firefox
 style! -name=about_blank about:blank <<EOF
 * { background: #333; }
 EOF
@@ -105,5 +109,11 @@ style! -name=indigo-sbmcommentsviewer chrome://* <<EOF
     }
 EOF
 source! /home/lyx/.vimperatorrc.local
-
+command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
+lazy fmaps -u='mail\.google\.com/*' c / j k n p o u e x s r a # [ ] ? gi gs gt gd ga gc ~ `
+lazy fmaps -u='mail\.google\.com/mail/.*/[0-9a-f]+$' c / j,n k,p n,j p,k o u e x s r a # [ ] ? gi gs gt gd ga gc ~ `
+lazy fmaps -u='www\.google\.com/reader' -events=vkeypress j k n p m s v A r S N P X O gh ga gs gt gu u / ? J K
+lazy fmaps -u='(fastladder|livedoor)\.com/reader' j k s a p o v c i,p <Space> <S-Space> z b < > q w e,g
+lazy fmaps -u='https?://www\.rememberthemilk\.com/home/' j k m i c t ? d F,f G,g S,s L,l Y,y H,h M,m <Del> <C-S-Left> <C-S-Right>
+lazy fmaps -u='http://code.google.com/p/vimperator-labs/issues/list' o j k
 " vim: set ft=vimperator:

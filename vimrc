@@ -1,10 +1,7 @@
 " Required:
 call plug#begin('~/.vim/plugged')
-
-" Plug 'jszakmeister/vim-togglecursor'
-" Plug 'john2x/flatui.vim'
-" Plug 'endel/vim-github-colorscheme'
-" Plug 'gosukiwi/vim-atom-dark'
+Plug 'jacekd/vim-iawriter'
+Plug 'Valloric/vim-valloric-colorscheme'
 Plug 'tommcdo/vim-exchange'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'saghul/vim-colortoggle'
@@ -18,7 +15,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'sjl/gundo.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'bling/vim-airline'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'junegunn/vim-easy-align'
@@ -36,7 +32,7 @@ Plug 'Rykka/riv.vim', {'for': ['rst']}
 Plug 'rust-lang/rust.vim', {'for': ['rust']}
 Plug 'meiraka/vim-google-cpp-style-indent', {'for': ['cpp']}
 Plug 'hynek/vim-python-pep8-indent', {'for': ['python']}
-Plug 'Valloric/YouCompleteMe', {'for': ['cpp', 'python', 'c']}
+Plug 'Valloric/YouCompleteMe'
 autocmd! User YouCompleteMe call youcompleteme#Enable()
 
 call plug#end()
@@ -56,10 +52,11 @@ nnoremap <C-A> ggVGY
 nnoremap <F2> :g/^\s*$/d<CR>
 set autoread
 
-" set background=dark
-nnoremap <leader>bg :ToggleBg<CR>
-colorscheme PaperColor
-
+set background=dark
+let g:default_background_type = "dark"
+let g:dark_colorscheme = "valloric"
+let g:light_colorscheme = "iawriter"
+map <silent><F11> :ToggleBg<CR>
 set nobackup
 set autowrite
 set cursorline
@@ -69,7 +66,7 @@ set lazyredraw
 
 set noeb
 set confirm
-set number
+" set number
 set history=1000
 set noswapfile
 set ignorecase
@@ -107,6 +104,7 @@ set lbr
 set tw=100
 set magic
 set foldcolumn=1
+set number
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
@@ -169,7 +167,6 @@ nnoremap <Leader>nf :NERDTreeFind<CR>
 
 "Goyo.vim plugin shortcut settings
 nnoremap <Leader>z :Goyo<cr>
-nnoremap <Leader>d :Bdelete<CR>
 nnoremap < :bprevious<CR>
 nnoremap > :bnext<CR>
 nnoremap <Leader>d :Bdelete<CR>
@@ -197,7 +194,7 @@ let b:python_version_2 = 1
 let python_highlight_all = 1
 
 "airline plugin settings
-let g:airline_theme='PaperColor'
+let g:airline_theme='dark'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_buffers=1
@@ -233,7 +230,7 @@ let g:UltiSnipsSnippetDirectories=["~/.vim/bundle/vim-snippets/UltiSnips"]
 
 
 "nerdtree settings
-let NERDTreeWinSize=22
+let NERDTreeWinSize=20
 let NERDTreeWinPos="right"
 let NERDTreeAutoDeleteBuffer=1
 autocmd StdinReadPre * let s:std_in=1
