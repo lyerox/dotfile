@@ -20,7 +20,6 @@ alias vim='nvim'
 # alias vim-geeknote='vim -c Geeknote'
 alias javac="javac -J-Dfile.encoding=utf8"
 alias grep="grep --color=auto"
-alias cat="colorize"
 alias gae="sudo ~/XX-Net/start.sh"
 alias wifi="sudo create_ap wlan0 eth0 lyx 12345678"
 alias hust="sudo sh  ~/Downloads/hustnet/rjsupplicant.sh"
@@ -41,7 +40,7 @@ alias -s gif='mcomix'
 
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/heroku/bin:/home/lyx/.cargo/bin:$PATH"
 alias netmusic="musicbox"
 alias pacupg="sudo pacman -Syu"
 alias pacre="sudo pacman -R"
@@ -49,6 +48,7 @@ alias pacrem="sudo pacman -Rns"
 alias pacin="sudo pacman -S"
 eval $(thefuck --alias)
 
+alias systemctl="sudo systemctl"
 source /usr/share/zsh/scripts/antigen/antigen.zsh
 
 
@@ -62,6 +62,8 @@ antigen bundle virtualenvwrapper
 antigen bundle arialdomartini/oh-my-git
 antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
 # Syntax highlighting bundle
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle tarruda/zsh-autosuggestions
 antigen apply

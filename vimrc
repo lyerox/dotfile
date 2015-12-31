@@ -30,6 +30,7 @@ Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'hdima/python-syntax', {'for': ['python']}
 Plug 'Rykka/riv.vim', {'for': ['rst']}
 Plug 'rust-lang/rust.vim', {'for': ['rust']}
+Plug 'racer-rust/vim-racer', {'for': ['rust']}
 Plug 'meiraka/vim-google-cpp-style-indent', {'for': ['cpp']}
 Plug 'hynek/vim-python-pep8-indent', {'for': ['python']}
 Plug 'Valloric/YouCompleteMe'
@@ -261,3 +262,12 @@ let g:multi_cursor_quit_key='<C-c>'
 nnoremap <C-c> :call multiple_cursors#quit()<CR>
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let g:tmuxline_powerline_separators = 0
+
+
+"vim-racer settings
+set hidden
+let g:racer_cmd = "racer"
+let $RUST_SRC_PATH="/home/lyx/.cargo/registry/src/"
+
+"provide root privelage
+cmap w! w !sudo tee > /dev/null %

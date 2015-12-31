@@ -68,9 +68,7 @@ nnoremap ,sb :bmarks<Return>
 nnoremap ,sf :stylish<Space>find<Return>
 nnoremap ,nf :set<Space>fullscreen<Return>
 nnoremap ,no :set<Space>nofullscreen<Return>
-nnoremap ,en :emenu<Space>Tools.WebClipper<Return>
 nnoremap ,ad <A-F2>
-nnoremap ,vb :emenu<Space>View.Firebug<Return>
 nnoremap ,gf :emenu<Space>Tools.Greasemonkey.Scripts<Space>on<Space>Greasy<Space>Fork<Return>
 nnoremap ,mv :tabmove<Return>
 nnoremap ,rc :emenu<Space>View.Close<Space>Reader<Space>View<Return>
@@ -80,6 +78,7 @@ set complete=sfl
 set hlsearch
 set editor=vim
 set focuscontent
+set animations
 set hintchars=ifjklasdhguonmerwc
 set maxitems=15
 set "nextpattern=s*下一页|下一张|下页s*,bnext|Next\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b"
@@ -108,12 +107,21 @@ style! -name=indigo-sbmcommentsviewer chrome://* <<EOF
         border: none !important;
     }
 EOF
+
+
+javascript <<EOM
+function toggle_flash() {
+  var oldvar = options.getPref('plugin.state.flash');
+  if (oldvar > 0)
+    liberator.echo('flash-plugin disabled.');
+  else
+    liberator.echo('flash-plugin enabled.');
+  options.setPref('plugin.state.flash', 2-oldvar);
+}
+EOM
+
+command! flashtoggle :js toggle_flash()
+nnoremap <C-F> :flashtoggle<CR>
 source! /home/lyx/.vimperatorrc.local
-command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
-lazy fmaps -u='mail\.google\.com/*' c / j k n p o u e x s r a # [ ] ? gi gs gt gd ga gc ~ `
-lazy fmaps -u='mail\.google\.com/mail/.*/[0-9a-f]+$' c / j,n k,p n,j p,k o u e x s r a # [ ] ? gi gs gt gd ga gc ~ `
-lazy fmaps -u='www\.google\.com/reader' -events=vkeypress j k n p m s v A r S N P X O gh ga gs gt gu u / ? J K
-lazy fmaps -u='(fastladder|livedoor)\.com/reader' j k s a p o v c i,p <Space> <S-Space> z b < > q w e,g
-lazy fmaps -u='https?://www\.rememberthemilk\.com/home/' j k m i c t ? d F,f G,g S,s L,l Y,y H,h M,m <Del> <C-S-Left> <C-S-Right>
-lazy fmaps -u='http://code.google.com/p/vimperator-labs/issues/list' o j k
 " vim: set ft=vimperator:
+
