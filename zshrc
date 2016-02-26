@@ -20,9 +20,9 @@ alias vim='nvim'
 # alias vim-geeknote='vim -c Geeknote'
 alias javac="javac -J-Dfile.encoding=utf8"
 alias grep="grep --color=auto"
-alias gae="sudo ~/XX-Net/start.sh"
+alias gae="sudo nohup sh ~/XX-Net/start.sh &"
 alias wifi="sudo create_ap wlan0 eth0 lyx 12345678"
-alias hust="sudo sh  ~/Downloads/hustnet/rjsupplicant.sh"
+alias hust="sudo nohup sh  ~/Downloads/hustnet/rjsupplicant.sh &"
 #alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
 #alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开
 #alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似

@@ -1,8 +1,8 @@
 " Required:
 call plug#begin('~/.vim/plugged')
 Plug 'jacekd/vim-iawriter'
-Plug 'Valloric/vim-valloric-colorscheme'
 Plug 'tommcdo/vim-exchange'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'saghul/vim-colortoggle'
 Plug 'tpope/vim-repeat'
@@ -15,11 +15,13 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'sjl/gundo.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
 Plug 'amix/vim-zenroom2' "A Vim extension that emulates iA Writer environment when editing Markdown, reStructuredText or text files
+
+Plug 'zenorocha/dracula-theme', { 'rtp':'vim/' }
 Plug 'Glench/Vim-Jinja2-Syntax',{'for': ['python']}
 Plug 'Yggdroot/indentLine', {'on': 'IndentLinesToggle'}
 Plug 'vim-scripts/Auto-Pairs'
@@ -55,7 +57,7 @@ set autoread
 
 set background=dark
 let g:default_background_type = "dark"
-let g:dark_colorscheme = "valloric"
+let g:dark_colorscheme = "dracula"
 let g:light_colorscheme = "iawriter"
 map <silent><F11> :ToggleBg<CR>
 set nobackup
@@ -194,22 +196,21 @@ endif
 let b:python_version_2 = 1
 let python_highlight_all = 1
 
-"airline plugin settings
-let g:airline_theme='dark'
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#show_buffers=1
-let g:airline#extensions#tabline#left_sep=' '
-let g:airline#extensions#tabline#left_alt_sep='|'
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#whitespace#enabled = 1
-let g:tmuxline_powerline_separators = 0
+" lightline settings
 
+let g:lightline = {
+      \ 'colorscheme': 'PaperColor',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"x":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
 
 "tagbar settings
-let g:airline#extensions#tagbar#enabled=1
-let g:airline#extensions#tagbar#flags = 'f'
-let g:tagbar_left=1
+" let g:airline#extensions#tagbar#enabled=1
+" let g:airline#extensions#tagbar#flags = 'f'
+" let g:tagbar_left=1
 ""
 
 "syntastic settings
@@ -231,8 +232,8 @@ let g:UltiSnipsSnippetDirectories=["~/.vim/bundle/vim-snippets/UltiSnips"]
 
 
 "nerdtree settings
-let NERDTreeWinSize=20
-let NERDTreeWinPos="right"
+let NERDTreeWinSize=26
+let NERDTreeWinPos="left"
 let NERDTreeAutoDeleteBuffer=1
 autocmd StdinReadPre * let s:std_in=1
 
@@ -261,6 +262,7 @@ let g:multi_cursor_start_word_key='g<C-n>'
 let g:multi_cursor_quit_key='<C-c>'
 nnoremap <C-c> :call multiple_cursors#quit()<CR>
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
 let g:tmuxline_powerline_separators = 0
 
 
