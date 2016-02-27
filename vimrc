@@ -20,10 +20,10 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
 Plug 'amix/vim-zenroom2' "A Vim extension that emulates iA Writer environment when editing Markdown, reStructuredText or text files
+Plug 'nathanaelkane/vim-indent-guides'
 
 Plug 'zenorocha/dracula-theme', { 'rtp':'vim/' }
 Plug 'Glench/Vim-Jinja2-Syntax',{'for': ['python']}
-Plug 'Yggdroot/indentLine', {'on': 'IndentLinesToggle'}
 Plug 'vim-scripts/Auto-Pairs'
 Plug 'moll/vim-bbye', {'on': 'Bdelete'}
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
