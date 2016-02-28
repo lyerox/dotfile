@@ -1,34 +1,34 @@
 " Required:
 call plug#begin('~/.vim/plugged')
 Plug 'jacekd/vim-iawriter'
-Plug 'tommcdo/vim-exchange'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'jmcantrell/vim-virtualenv'
 Plug 'saghul/vim-colortoggle'
+Plug 'tommcdo/vim-exchange'
+Plug 'jmcantrell/vim-virtualenv'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-expand-region'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'majutsushi/tagbar'
-Plug 'ntpeters/vim-better-whitespace'
+Plug 'vim-scripts/Auto-Pairs'
 Plug 'sjl/gundo.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'itchyny/lightline.vim'
-Plug 'tmux-plugins/vim-tmux'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
 Plug 'amix/vim-zenroom2' "A Vim extension that emulates iA Writer environment when editing Markdown, reStructuredText or text files
 Plug 'nathanaelkane/vim-indent-guides'
 
 Plug 'zenorocha/dracula-theme', { 'rtp':'vim/' }
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'majutsushi/tagbar', {'on': 'TagbarToggle' }
 Plug 'Glench/Vim-Jinja2-Syntax',{'for': ['python']}
-Plug 'vim-scripts/Auto-Pairs'
 Plug 'moll/vim-bbye', {'on': 'Bdelete'}
+Plug 'tmux-plugins/vim-tmux', {'for': ['.tmux.conf']}
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'Sirver/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'hdima/python-syntax', {'for': ['python']}
 Plug 'Rykka/riv.vim', {'for': ['rst']}
 Plug 'rust-lang/rust.vim', {'for': ['rust']}
@@ -55,8 +55,7 @@ nnoremap <C-A> ggVGY
 nnoremap <F2> :g/^\s*$/d<CR>
 set autoread
 
-set background=dark
-let g:default_background_type = "dark"
+let g:default_background_type = "light"
 let g:dark_colorscheme = "dracula"
 let g:light_colorscheme = "iawriter"
 map <silent><F11> :ToggleBg<CR>
@@ -89,7 +88,7 @@ set viminfo+=!
 set iskeyword+=_,$,@,%,#,-
 set linespace=0
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
@@ -129,17 +128,22 @@ set showmatch
 set matchtime=2
 set scrolloff=3
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 
 " CTags settings
- map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>
- let Tlist_Sort_Type = "name"
- let Tlist_Use_Left_Window = 1
- let Tlist_Compart_Format = 1
- let Tlist_Exist_OnlyWindow = 1
- let Tlist_File_Fold_Auto_Close = 0
- let Tlist_Enable_Fold_Column = 0
- let Tlist_Show_One_File=1
+map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>
+let Tlist_Sort_Type            = "name"
+let Tlist_Use_Left_Window      = 1
+let Tlist_Compart_Format       = 1
+let Tlist_Exist_OnlyWindow     = 1
+let Tlist_File_Fold_Auto_Close = 0
+let Tlist_Enable_Fold_Column   = 0
+let Tlist_Show_One_File        = 1
 set autochdir
 
 "noremap quick go first word and the last
@@ -164,15 +168,13 @@ nnoremap <C-t> :TagbarToggle<CR>
 
 "NERD Tree plugin shortcut settings
 nnoremap <Leader>nn :NERDTreeToggle<CR>
-nnoremap <Leader>nb :NERDTreeFromBookmark<CR>
-nnoremap <Leader>nf :NERDTreeFind<CR>
-
+nnoremap <Leader>nt <plug>NERDTreeTabsToggle<CR>
 
 "Goyo.vim plugin shortcut settings
-nnoremap <Leader>z :Goyo<cr>
-nnoremap < :bprevious<CR>
-nnoremap > :bnext<CR>
-nnoremap <Leader>d :Bdelete<CR>
+nnoremap <Leader>go :Goyo<cr>
+nnoremap <Leader>bp :bprevious<CR>
+nnoremap <Leader>bn :bnext<CR>
+nnoremap <Leader>bd :Bdelete<CR>
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 
@@ -199,7 +201,7 @@ let python_highlight_all = 1
 " lightline settings
 
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
+      \ 'colorscheme': 'powerline',
       \ 'component': {
       \   'readonly': '%{&readonly?"x":""}',
       \ },
@@ -207,11 +209,7 @@ let g:lightline = {
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
 
-"tagbar settings
-" let g:airline#extensions#tagbar#enabled=1
-" let g:airline#extensions#tagbar#flags = 'f'
-" let g:tagbar_left=1
-""
+
 
 "syntastic settings
 let g:syntastic_python_python_exec = '/usr/bin/python'
@@ -247,10 +245,10 @@ endif
 nmap s <Plug>(easymotion-s2)
 nmap <Leader>J <Plug>(easymotion-j)
 nmap <Leader>K <Plug>(easymotion-k)
-
-
 let g:EasyMotion_smartcase=1
 let g:EasyMotion_use_smartsign_us = 1
+
+
 if has('nvim')
     set clipboard+=unnamedplus
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
