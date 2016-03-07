@@ -1,0 +1,38 @@
+imap <C-a> beginningOfLine
+imap <C-h> deleteChar
+imap <C-w> backwardWord
+map d closeTab
+map u lastClosedTab
+map h previousTab
+map l nextTab
+let hintcharaters = "asdfhjkl"
+"Code blocks (see below for more info)
+getIP() -> {{
+httpRequest({url: 'http://api.ipify.org/?format=json', json: true},
+            function(res) { Status.setMessage('IP: ' + res.ip); });
+}}
+" Displays your public IP address in the status bar
+map ci :call getIP<CR>
+" Script hints
+echo(link) -> {{
+  alert(link.href);
+}}
+map <C-f> createScriptHint(echo)
+let qmark r =["https://ruby-china.org/"]
+let qmark l = ["https://linux.cn/"]
+let qmark i = ["https://inbox.google.com/"]
+let qmark z = ["http://www.zhihu.com"]
+let qmark v = ["https://v2ex.com/"]
+let qmark d = ["http://www.douban.com"]
+let qmark a = ["https://www.archlinux.org", "https://wiki.archlinux.org"]
+let qmark R = ["https://home.console.aliyun.com/#/"]
+let nextmatchpattern="\s*下一页|下一张|下一篇|下页|后页\s*,^\b(N|n)ext\b,\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b"
+let previousmatchpattern="\s*上一页|上一张|上一篇|上页|前页\s*,^\b(p|P)rev|(p|P)revious\b,\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$"
+let searchengine sg = "https://www.sogou.com/web?query=%s"
+let searchengine github = "https://github.com/search?q=%s&ref=opensearch"
+let searchengine so = "http://stackoverflow.com/search?q=%s"
+let searchengine twitter = "https://twitter.com/search?q=%s&source=desktop-search"
+let searchengine aur = "https://aur.archlinux.org/packages/?O=0&K="
+let searchengine zhihu = "http://www.zhihu.com/search?q=%s"
+let searchengine book = "http://book.douban.com/subject_search?cat=1003&search_text=%s"
+let completionengines = ["google", "bing", "sg", "github", "so", "duckduckgo", "wiki", "book", "baidu", "zhihu", "aur"]
