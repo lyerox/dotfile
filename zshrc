@@ -68,4 +68,5 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle tarruda/zsh-autosuggestions
 antigen apply
 export PATH="$HOME/.rbenv/bin:$PATH"
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 eval "$(rbenv init -)"
