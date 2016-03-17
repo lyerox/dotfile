@@ -259,6 +259,7 @@ let g:multi_cursor_start_key='<C-n>'
 let g:multi_cursor_start_word_key='g<C-n>'
 let g:multi_cursor_quit_key='<C-c>'
 nnoremap <C-c> :call multiple_cursors#quit()<CR>
+
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 let g:tmuxline_powerline_separators = 0
