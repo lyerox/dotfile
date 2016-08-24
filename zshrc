@@ -1,7 +1,6 @@
 export TERM="xterm-256color"
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
-source /usr/lib/z.sh
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -52,19 +51,21 @@ alias systemctl="sudo systemctl"
 
 
 # Load the oh-my-zsh's library
-source ~/.zplug/zplug
+source ~/.zplug/init.zsh
 
 # Make sure you use double quotes
 zplug "zsh-users/zsh-history-substring-search"
 
 zplug  "zsh-users/zsh-completions"
 
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
+
 # Can manage a plugin as a command
 # And accept glob patterns (e.g., brace, wildcard, ...)
-zplug "Jxck/dotfiles", as:command, of:"bin/{histuniq,color}"
+zplug "Jxck/dotfiles", as:command, use:"bin/{histuniq,color}"
 
 # Can manage everything e.g., other person's zshrc
-zplug "tcnksm/docker-alias", of:zshrc
+zplug "tcnksm/docker-alias", use:zshrc
 
 # Prohibit updates to a plugin by using the "frozen:" tag
 zplug "k4rthik/git-cal", as:command, frozen:1
@@ -74,20 +75,19 @@ zplug "k4rthik/git-cal", as:command, frozen:1
 zplug "junegunn/fzf-bin", \
     as:command, \
     from:gh-r, \
-    file:fzf, \
-    of:"*darwin*amd64*"
+    rename-to:fzf, \
+    use:"*darwin*amd64*"
 
 # Support oh-my-zsh plugins and the like
-zplug "plugins/git",   from:oh-my-zsh, if:"which git"
-zplug "themes/duellj", from:oh-my-zsh
-zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+zplug "plugins/git",   from:oh-my-zsh, nice:12, if:"which git"
+# zplug "themes/robbyrussell", from:oh-my-zsh, nice:12
 
 # Run a command after a plugin is installed/updated
-zplug "tj/n", do:"make install"
+zplug "tj/n", hook-build:"make install"
 
 # Support checking out a specific branch/tag/commit of a plugin
 zplug "b4b4r07/enhancd", at:v1
-zplug "mollifier/anyframe", commit:4c23cb60
+zplug "mollifier/anyframe", at:4c23cb60
 
 # Install if "if:" tag returns true
 zplug "hchbaw/opp.zsh", if:"(( ${ZSH_VERSION%%.*} < 5 ))"
@@ -96,31 +96,31 @@ zplug "hchbaw/opp.zsh", if:"(( ${ZSH_VERSION%%.*} < 5 ))"
 zplug "b4b4r07/79ee61f7c140c63d2786", \
     from:gist, \
     as:command, \
-    of:get_last_pane_path.sh
+    use:get_last_pane_path.sh
 
 # Support bitbucket
 zplug "b4b4r07/hello_bitbucket", \
-    as:command, \
     from:bitbucket, \
-    do:"chmod 755 *.sh", \
-    of:"*.sh"
+    as:command, \
+    hook-build:"chmod 755 *.sh", \
+    use:"*.sh"
 
 # Group dependencies, emoji-cli depends on jq in this example
-zplug "stedolan/jq", \
-    as:command, \
-    file:jq, \
-    from:gh-r \
-    | zplug "b4b4r07/emoji-cli"
+# zplug "stedolan/jq", \
+#     from:gh-r \
+#     as:command, \
+#     rename-to:jq
+# zplug "b4b4r07/emoji-cli", \
+#     on:"stedolan/jq"
 
 # Set priority to load command like a nice command
 # e.g., zsh-syntax-highlighting must be loaded
 # after executing compinit command and sourcing other plugins
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
 # Can manage local plugins
-zplug "~/.zsh", from:local
+# zplug "~/.zsh", from:local
 # A relative path is resolved with respect to the $ZPLUG_HOME
-zplug "repos/robbyrussell/oh-my-zsh/custom/plugins/my-plugin", from:local
+# zplug "repos/robbyrussell/oh-my-zsh/custom/plugins/my-plugin", from:local
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -132,8 +132,8 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
-# Syntax highlighting bundle
-# antigen bundle tarruda/zsh-autosuggestions
+
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
