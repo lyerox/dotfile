@@ -274,7 +274,6 @@ user code."
 
   ;; Auto-refresh dired on file change
   (add-hook 'dired-mode-hook 'auto-revert-mode)
-  (add-hook 'prog-mode-hook 'spacemacs/toggle-hungry-delete-on)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
  )
 
