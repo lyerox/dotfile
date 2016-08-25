@@ -1,0 +1,24 @@
+"3.14.0 (created: 2016/06/07 23:58:16)
+
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+command! getScript emenu Tools.Greasemonkey.Scripts on Greasy Fork
+command! pockets emenu Bookmarks.View Pocket List
+command! scripts emenu Tools.Greasemonkey.Manage User Scripts...
+command! vsclose emenu Tile.Close Layout
+command! vsplit emenu Tile.New Layout.2 Tabs - Vertical
+inoremap <C-a> <Home>
+nnoremap h gT
+nnoremap l gt
+nnoremap j 5j
+nnoremap k 5k
+nnoremap > :tabmove<Space>+1<Return>
+nnoremap <lt> :tabmove<Space>-1<Return>
+nnoremap ,gf :emenu<Space>Tools.Greasemonkey.Scripts<Space>on<Space>Greasy<Space>Fork<Return>
+set focuscontent
+set hintchars=hjklasdf
+set noscrollbars
+set status=input,bookmark,history,tabcount,position
+source! /home/lyx/.vimperatorrc.local
+
+" vim: set ft=vimperator:
