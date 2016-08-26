@@ -7,6 +7,31 @@ command! pockets emenu Bookmarks.View Pocket List
 command! scripts emenu Tools.Greasemonkey.Manage User Scripts...
 command! vsclose emenu Tile.Close Layout
 command! vsplit emenu Tile.New Layout.2 Tabs - Vertical
+highlight Bell border: none; background: #27282B;
+highlight Boolean color: orchid;
+highlight CmdLine color: #CECFD1; background: #27282B; 
+highlight CmdLine>* font-family: "Droid Sans"; font-size: 10pt; height: 24px;
+highlight CompDesc width: auto; color: #AAABAD;
+highlight CompItem background: #27282B;
+highlight CompItem>* height: auto; padding: 0 8px;
+highlight CompItem[selected] color: #CECFD1; background: #17181A;
+highlight CompTitle background: #27282B; font-family: "Droid Sans"; font-size: 10pt;
+highlight CompTitle>* color: #CECFD1; padding: 2px 8px;
+highlight Enabled color: #d0ffd0;
+highlight ErrorMsg color: #ffffff; background: #440000; font-size: 12px;
+highlight Filter color: #CECFD1; background: #17181A;
+highlight Function color: skyblue;
+highlight InfoMsg color: #d0d0d0; background: #1c1c1c; font-size: 12px;
+highlight Mapping color: orchid;
+highlight ModeMsg color: #d0d0d0; background: #1c1c1c; font-size: 12px;
+highlight MoreMsg color: #d0ffd0; background: #1c1c1c; font-size: 12px;
+highlight Normal color: #d0d0d0; background: #1c1c1c; font-size: 12px;
+highlight Null color: cornflowerblue;
+highlight Number color: cornflowerblue;
+highlight Object color: khaki;
+highlight StatusLine color: #AAABAD; background: #27282B; font-family: "Droid Sans"; font-size: 10pt;
+highlight String color: orchid;
+highlight WarningMsg color: #ff0000; background: #1c1c1c; font-size: 12px;
 inoremap <C-a> <Home>
 nnoremap h gT
 nnoremap l gt
