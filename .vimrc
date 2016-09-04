@@ -41,7 +41,6 @@ call plug#end()
 filetype plugin indent on
 syntax enable
 
-colorscheme jellybeans
 let g:indentLine_enabled = 0
 
 set encoding=utf-8
