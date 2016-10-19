@@ -40,11 +40,11 @@ nnoremap k 5k
 nnoremap > :tabmove<Space>+1<Return>
 nnoremap <lt> :tabmove<Space>-1<Return>
 nnoremap ,gf :emenu<Space>Tools.Greasemonkey.Scripts<Space>on<Space>Greasy<Space>Fork<Return>
-set complete=sfl
+set complete=shl
 set focuscontent
 set hintchars=hjklasdf
 set noscrollbars
 set status=input,bookmark,history,tabcount,position
-source! /home/lyx/.vimperatorrc.local
+source! /home/lyerox/.vimperatorrc.local
 
 " vim: set ft=vimperator:
