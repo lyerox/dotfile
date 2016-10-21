@@ -10,8 +10,6 @@ bind i display-message
 bind -t vi-copy v begin-selection
 bind -t vi-copy y copy-selection
 
-bind -t | splitw -h
-bind -t - splitw -v
 # paste
 unbind C-p
 bind C-p paste-buffer
